@@ -6,7 +6,7 @@ fi
 
 clear
 echo "#################################################################################"
-echo "A tool to auto-compile & install MySQL 5.7.15 on Redhat/CentOS Linux "
+echo "A tool to auto install MySQL or MySQL Slave on CentOS6 Linux "
 echo "#################################################################################"
 # cur_dir=$(pwd)
 
