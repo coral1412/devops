@@ -282,7 +282,7 @@ echo "export PATH=$PATH:$MySQL_HOME/bin">>/etc/profile  && source /etc/profile
 echo "########################install master or slave or a mysql ###########################"
 
 isinstallmaster="s"
-echo "Install MySQL Master,Please input m/M ,Install MySQL Slave,Please input s/M"
+echo "Install MySQL Master,Please input m/M ,Install MySQL Slave,Please input s/S"
 read -p "Please input m/M or s/S:" isinstallmaster
 
 case "$isinstallmaster" in
