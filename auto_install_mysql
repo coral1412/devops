@@ -281,32 +281,32 @@ echo "export PATH=$PATH:$MySQL_HOME/bin">>/etc/profile  && source /etc/profile
 #install master or slave or a mysql
 echo "########################install master or slave or a mysql ###########################"
 
-    isinstallmaster="s"
-    echo "Install MySQL Master,Please input m/M ,Install MySQL Slave,Please input s/M"
-    read -p "Please input m/M or s/S:" isinstallmaster
-	
-    case "$isinstallmaster" in
-    [mM]) 
-    isinstallmaster="m"
-    echo "your input is m,you will only install mysql master"
-    read -p "Please input replication netmask:" REPL_NETMASK
-    /usr/local/mysql/bin/mysql -uroot -poRcl_123 -e "grant replication slave on *.* to repl@'$REPL_NETMASK' identified by 'oRcl_123'"
-    ;;
-    [sS])
-    isinstallmaster="s"
-    echo "your input is s,you will install mysql slave"
-    echo -e "Please input the master messages:" 
-    read -p "Please input the master_host:" MASTER_IP
-    read -p "Please input the master_port:" MASTER_PORT
-    read -p "Please input the repl_user:" REPL_USER
-    read -p "Please input the repl_password:" REPL_PASSWORD
-    /usr/local/mysql/bin/mysql -u root -poRcl_123  -e "change master to master_host='$MASTER_IP',master_port=$MASTER_PORT,master_user='$REPL_USER',master_password='$REPL_PASSWORD',master_auto_position=1;"
-    /usr/local/mysql/bin/mysql -uroot -poRcl_123 -e "start slave;"
-    ;;
-    *)
-    echo "your input error,you will only install a mysql"
-    exit
-    ;;
-    esac
+isinstallmaster="s"
+echo "Install MySQL Master,Please input m/M ,Install MySQL Slave,Please input s/M"
+read -p "Please input m/M or s/S:" isinstallmaster
+
+case "$isinstallmaster" in
+[mM]) 
+isinstallmaster="m"
+echo "your input is m,you will only install mysql master"
+read -p "Please input replication netmask:" REPL_NETMASK
+/usr/local/mysql/bin/mysql -uroot -poRcl_123 -e "grant replication slave on *.* to repl@'$REPL_NETMASK' identified by 'oRcl_123'"
+;;
+[sS])
+isinstallmaster="s"
+echo "your input is s,you will install mysql slave"
+echo -e "Please input the master messages:" 
+read -p "Please input the master_host:" MASTER_IP
+read -p "Please input the master_port:" MASTER_PORT
+read -p "Please input the repl_user:" REPL_USER
+read -p "Please input the repl_password:" REPL_PASSWORD
+/usr/local/mysql/bin/mysql -u root -poRcl_123  -e "change master to master_host='$MASTER_IP',master_port=$MASTER_PORT,master_user='$REPL_USER',master_password='$REPL_PASSWORD',master_auto_position=1;"
+/usr/local/mysql/bin/mysql -uroot -poRcl_123 -e "start slave;"
+;;
+*)
+echo "your input error,you will only install a mysql"
+exit
+;;
+esac
 }
 install_mysql
