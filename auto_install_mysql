@@ -1,4 +1,5 @@
 #!/bin/bash
+source /etc/profile
 if [ $(id -u ) !="0"];then
     echo "Error：You must be root to run this script,Please use root to install"
     exit 1
@@ -14,6 +15,7 @@ source  /etc/profile
 MySQL_HOME=/usr/local/mysql
 MySQL_DATA=/data/mysql/data
 MySQL_TAR=Percona-Server-5.6.37-rel82.2-Linux.x86_64.ssl101.tar.gz
+MySQL_TAR=Percona-Server-5.7.18-16-Linux.x86_64.ssl101.tar.gz
 MySQL_CONF=/etc/my.cnf
 MySQL_USER=mysql
 
@@ -264,8 +266,27 @@ chmod 700 /etc/init.d/mysqld
 chkconfig --add mysqld
 chkconfig --level 2345 mysqld on
 
-#initialize mysql 
-$MySQL_HOME/scripts/mysql_install_db  --defaults-file=$MySQL_CONF --user=$MySQL --basedir=$MySQL_HOME  --datadir=$MySQL_DATA
+#initialize mysql5.6
+initialize="6"
+echo "is install mysql5.6 or mysql5.7?"
+read -p "Please input 6 or 7:" initialize
+case "$initialize" in
+6|5.6|56)
+initialize="6"
+echo "your input is 5.6,you will initialize mysql5.6..."
+$MySQL_HOME/scripts/mysql_install_db  --defaults-file=$MySQL_CONF --user=$MySQL_USER --basedir=$MySQL_HOME  --datadir=$MySQL_DATA
+;;
+7|5.7|57)
+initialize="7"
+echo "your input is 5.7,you will initialize mysql5.7..."
+$MySQL_HOME/bin/mysqld  --initialize-insecure   --user=$MySQL_USER --basedir=$MySQL_HOME  --datadir=$MySQL_DATA
+;;
+*)
+echo "your input error,you will abort initialize mysql..."
+exit
+;;
+esac
+
 
 #chown  mysql again
 chown -R mysql:mysql  /data/mysql
@@ -288,13 +309,13 @@ read -p "Please input m/M or s/S:" isinstallmaster
 case "$isinstallmaster" in
 [mM]) 
 isinstallmaster="m"
-echo "your input is m,you will only install mysql master"
+echo "your input is m,you will only install mysql master..."
 read -p "Please input replication netmask:" REPL_NETMASK
 /usr/local/mysql/bin/mysql -uroot -ppasswd -e "grant replication slave on *.* to repl@'$REPL_NETMASK' identified by 'passwd'"
 ;;
 [sS])
 isinstallmaster="s"
-echo "your input is s,you will install mysql slave"
+echo "your input is s,you will install mysql slave..."
 echo -e "Please input the master messages:" 
 read -p "Please input the master_host:" MASTER_IP
 read -p "Please input the master_port:" MASTER_PORT
@@ -304,7 +325,7 @@ read -p "Please input the repl_password:" REPL_PASSWORD
 /usr/local/mysql/bin/mysql -uroot -ppasswd -e "start slave;"
 ;;
 *)
-echo "your input error,you will only install a mysql"
+echo "your input error,you will only install a mysql..."
 exit
 ;;
 esac

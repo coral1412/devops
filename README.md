@@ -1,3 +1,3 @@
 # devops  auto scripts
 #auto_install_msyql 
-一键安装MySQL，可选择单实例、主从搭建（仅支持GTID）
+分分钟自动化可定制安装MySQL,包括单实例，从库以及主从飞速部署（从库当前仅支持GTID）
