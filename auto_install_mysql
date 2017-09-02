@@ -275,7 +275,7 @@ chown -R mysql:mysql /usr/local/mysql
 /etc/init.d/mysqld  start 
 echo "export PATH=$PATH:$MySQL_HOME/bin">>/etc/profile  && source /etc/profile
 
-/usr/local/mysql/bin/mysqladmin -u root password 'oRcl_123'
+/usr/local/mysql/bin/mysqladmin -u root password 'passwd'
 
 
 #install master or slave or a mysql
@@ -290,7 +290,7 @@ case "$isinstallmaster" in
 isinstallmaster="m"
 echo "your input is m,you will only install mysql master"
 read -p "Please input replication netmask:" REPL_NETMASK
-/usr/local/mysql/bin/mysql -uroot -poRcl_123 -e "grant replication slave on *.* to repl@'$REPL_NETMASK' identified by 'oRcl_123'"
+/usr/local/mysql/bin/mysql -uroot -ppasswd -e "grant replication slave on *.* to repl@'$REPL_NETMASK' identified by 'passwd'"
 ;;
 [sS])
 isinstallmaster="s"
@@ -300,8 +300,8 @@ read -p "Please input the master_host:" MASTER_IP
 read -p "Please input the master_port:" MASTER_PORT
 read -p "Please input the repl_user:" REPL_USER
 read -p "Please input the repl_password:" REPL_PASSWORD
-/usr/local/mysql/bin/mysql -u root -poRcl_123  -e "change master to master_host='$MASTER_IP',master_port=$MASTER_PORT,master_user='$REPL_USER',master_password='$REPL_PASSWORD',master_auto_position=1;"
-/usr/local/mysql/bin/mysql -uroot -poRcl_123 -e "start slave;"
+/usr/local/mysql/bin/mysql -u root -ppasswd  -e "change master to master_host='$MASTER_IP',master_port=$MASTER_PORT,master_user='$REPL_USER',master_password='$REPL_PASSWORD',master_auto_position=1;"
+/usr/local/mysql/bin/mysql -uroot -ppasswd -e "start slave;"
 ;;
 *)
 echo "your input error,you will only install a mysql"
