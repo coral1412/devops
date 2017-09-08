@@ -4,7 +4,7 @@
 #date:2017/09/09 0:39
 
 source /etc/profile
-PASSWD=oRcl_123
+PASSWD=passwd
 MYSQL_SOCK=/data/mysql/mysql.sock
 
 expgrants(){
