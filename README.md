@@ -7,3 +7,7 @@ auto  scripts
 * [expgrants.sh](https://github.com/coral1412/devops/blob/master/expgrants.sh)
 
 用于MySQL系统用户及权限备份/导出。
+
+* [check_mysql.sh](https://github.com/coral1412/devops/blob/master/check_mysql.sh)
+
+用户检测一个实例不合理的地方
