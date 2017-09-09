@@ -23,4 +23,13 @@ mysql -uroot -p$PASSWD -S $MYSQL_SOCK -e "select table_schema,table_name,engine 
 #表和列没有注释的
 mysql -uroot -p$PASSWD -S $MYSQL_SOCK -e "select table_schema,table_name,table_comment from information_schema.tables where table_comment='' and table_schema not  in('sys','test','performance_schema','mysql','information_schema')"  >./$CHECK_DIR/table_comment_isnull.txt 2>&1
 
-#包括不限于上述几点的不合理的检测？
+
+#查看表的字符集和排序规则
+#mysql -uroot -p$PASSWD -S $MYSQL_SOCK -e "select table_schema,table_name,TABLE_COLLATION  from tables where table_schema not in ('sys','test','performance_schema','mysql','information_schema') ;"
+
+#column
+mysql -uroot -p$PASSWD -S $MYSQL_SOCK -e "select table_schema,table_name,CHARACTER_SET_NAME,COLLATION_NAME,COLUMN_name from information_schema.columns where table_schema not in ('sys','test','performance_schema','mysql','information_schema')"
+
+
+#修改字段的排序规则
+#mysql -uroot -p$PASSWD -S $MYSQL_SOCK -e "SELECT * FROM (SELECT CONCAT( 'ALTER TABLE `', table_name,'` MODIFY `', column_name, '` ',DATA_TYPE,'(',CHARACTER_MAXIMUM_LENGTH,') CHARACTER SET UTF8 COLLATE utf8_bin',(CASEWHEN IS_NULLABLE = 'NO' THEN' NOT NULL'ELSE '' END)，';') NAMEFROMinformation_schema. COLUMNSWHERETABLE_SCHEMA  not in('sys','mysql','test','information_schema','performance_schema')) t;"
