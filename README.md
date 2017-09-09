@@ -10,4 +10,4 @@ auto  scripts
 
 * [mysql_check.sh](https://github.com/coral1412/devops/blob/master/check_mysql.sh)
 
-用户检测一个MySQL实例不合理的地方,包括但不限于表存储引擎以及表注释以及用户权限等。
+用于检测一个MySQL实例不合理的地方,包括但不限于表存储引擎以及表注释以及用户权限等。
