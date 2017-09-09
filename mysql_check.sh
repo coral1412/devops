@@ -1,5 +1,4 @@
 #!/bin/bash
-#export mysql.user & grant,normal used to  data migration
 #author:fourge
 #date:2017/09/10 2：00
 
