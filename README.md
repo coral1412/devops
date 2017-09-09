@@ -8,6 +8,6 @@ auto  scripts
 
 用于MySQL系统用户及权限备份/导出。
 
-* [check_mysql.sh](https://github.com/coral1412/devops/blob/master/check_mysql.sh)
+* [mysql_check.sh](https://github.com/coral1412/devops/blob/master/check_mysql.sh)
 
-用户检测一个实例不合理的地方
+用户检测一个MySQL实例不合理的地方,包括但不限于表存储引擎以及表注释以及用户权限等。
