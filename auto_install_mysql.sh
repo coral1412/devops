@@ -11,10 +11,9 @@ echo "A tool to auto install MySQL or MySQL Master&Slave on CentOS6 Linux "
 echo "#################################################################################"
 # cur_dir=$(pwd)
 
-source  /etc/profile
 MySQL_HOME=/usr/local/mysql
 MySQL_DATA=/data/mysql/data
-MySQL_TAR=Percona-Server-5.6.37-rel82.2-Linux.x86_64.ssl101.tar.gz
+#MySQL_TAR=Percona-Server-5.6.37-rel82.2-Linux.x86_64.ssl101.tar.gz
 MySQL_TAR=Percona-Server-5.7.18-16-Linux.x86_64.ssl101.tar.gz
 MySQL_CONF=/etc/my.cnf
 MySQL_USER=mysql
@@ -41,7 +40,7 @@ yum install -y perl-Data-Dumper.x86_64 #CentOS-7.2.1511
 setenforce 0
 # /etc/init.d/iptables stop 
 
-install_mysql() {
+install_mysql(){
 /usr/sbin/groupadd mysql
 /usr/sbin/useradd -g mysql mysql -s /sbin/nologin
 
@@ -257,7 +256,7 @@ if [ ! -d "/usr/local/mysql" ];then
 else
     rm -rf /usr/local/mysql;mkdir /usr/local/mysql
 fi
-tar zxvf /usr/local/src/$MySQL_TAR  -C /usr/local/mysql --strip-components 1 
+tar zxvf $MySQL_TAR  -C /usr/local/mysql --strip-components 1 
 chown -R mysql:mysql /usr/local/mysql 
 
 #copy /etc/init.d/mysqld
