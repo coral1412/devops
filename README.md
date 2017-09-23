@@ -11,3 +11,7 @@ auto  scripts
 * [mysql_check.sh](https://github.com/coral1412/devops/blob/master/mysql_check.sh)
 
 用于检测一个MySQL实例不合理的地方,包括但不限于表存储引擎以及表注释以及用户权限等。
+
+* [auto_install_pyenv_virtualenv.sh](https://github.com/coral1412/devops/blob/master/auto_install_pyenv_virtualenv.sh)
+
+用于安装virtualenv、virtualenvwrapper以及pyenv,并初始化一个指定版本的Python及项目虚拟环境
