@@ -14,5 +14,5 @@ auto  scripts
 
 * [auto_install_pyenv_virtualenv.sh](https://github.com/coral1412/devops/blob/master/auto_install_pyenv_virtualenv.sh)
 
-用于安装virtualenv、virtualenvwrapper以及pyenv,并初始化一个指定版本的Python及项目虚拟环境
+用于安装virtualenv、virtualenvwrapper以及pyenv,并初始化一个指定版本的Python及项目虚拟环境<br>
 usage：source auto_install_pyenv_virtualenv.sh  python_version  virtualenvname
