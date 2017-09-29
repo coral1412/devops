@@ -1,4 +1,7 @@
 #!/bin/bash
+#ENV：CentOS 7
+#AUTHOR：fourge
+#DATE:2017/09/25
 source /etc/profile
 pyver=$1
 virname=$2
