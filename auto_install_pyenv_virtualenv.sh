@@ -9,7 +9,7 @@ if [ $? -ne 0 ];then
     #yum install -y python-pip
     echo "pip is already exists"
 else
-    curl https://bootstrap.pypa.io/get-pip.py |python
+    curl https://bootstrap.pypa.io/get-pip.py |python  ||yum -y install epel-release && yum install -y python-pip
 fi
 
 #配置豆瓣pypi镜像
