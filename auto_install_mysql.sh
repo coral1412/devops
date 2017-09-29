@@ -34,7 +34,7 @@ rpm -e [Pp]ercona
 rpm -e [Mm]ariaDB
 
 #install package dependency
-yum install -y perl-Data-Dumper.x86_64 #CentOS-7.2.1511
+yum install -y perl-Data-Dumper.x86_64 numactl  libaio  perl #CentOS-7.2.1511  
 
 #Selinux  & Iptables
 setenforce 0
