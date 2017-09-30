@@ -7,14 +7,14 @@ fi
 
 clear
 echo "#################################################################################"
-echo "A tool to auto install MySQL or MySQL Master&Slave on CentOS6 Linux "
 echo "#################################################################################"
 # cur_dir=$(pwd)
 
 MySQL_HOME=/usr/local/mysql
 MySQL_DATA=/data/mysql/data
 #MySQL_TAR=Percona-Server-5.6.37-rel82.2-Linux.x86_64.ssl101.tar.gz
-MySQL_TAR=Percona-Server-5.7.18-16-Linux.x86_64.ssl101.tar.gz
+#MySQL_TAR=Percona-Server-5.7.18-16-Linux.x86_64.ssl101.tar.gz
+read -p "Please input MySQL Version:" MySQL_TAR
 MySQL_CONF=/etc/my.cnf
 MySQL_USER=mysql
 
@@ -34,7 +34,7 @@ rpm -e [Pp]ercona
 rpm -e [Mm]ariaDB
 
 #install package dependency
-yum install -y perl-Data-Dumper.x86_64 #CentOS-7.2.1511
+yum install -y perl-Data-Dumper.x86_64  numactl  libaio perl #CentOS-7.2.1511
 
 #Selinux  & Iptables
 setenforce 0
@@ -298,11 +298,11 @@ echo "export PATH=$PATH:$MySQL_HOME/bin">>/etc/profile  && source /etc/profile
 /usr/local/mysql/bin/mysqladmin -u root password 'passwd'
 
 
-#install master or slave or a mysql
-echo "########################install master or slave or a mysql ###########################"
-
+#install master or slave or single mysql
+echo "#####################install master or slave or single mysql #########################"
+echo "######################################################################################"
 isinstallmaster="s"
-echo "Install MySQL Master,Please input m/M ,Install MySQL Slave,Please input s/S"
+echo "Install MySQL Master,Please input m/M ,Install MySQL Slave,Please input s/S,Install MySQL Single,Please input 1/single"
 read -p "Please input m/M or s/S:" isinstallmaster
 
 case "$isinstallmaster" in
@@ -324,7 +324,7 @@ read -p "Please input the repl_password:" REPL_PASSWORD
 /usr/local/mysql/bin/mysql -uroot -ppasswd -e "start slave;"
 ;;
 *)
-echo "your input error,you will only install a mysql..."
+echo "your input error,you will only install a single mysql..."
 exit
 ;;
 esac
