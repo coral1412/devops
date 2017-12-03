@@ -54,4 +54,5 @@ source ~/.bash_profile
 
 pyenv install -v $pyver
 mkproject -p  /root/.pyenv/versions/"$pyver"/bin/python $virname
-
+##########install virtualenvwrapper############
+pip install virtualenvwrapper
