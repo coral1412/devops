@@ -24,3 +24,15 @@ usage：source auto_install_pyenv_virtualenv.sh  python_version  virtualenvname
 * [install_aliyun_epel.sh](https://github.com/coral1412/devops/blob/master/install_aliyun_epel.sh)
 
 根据系统版本安装阿里云的EPEL YUM源的脚本
+
+* [MongoRepl_rw.zip](https://github.com/coral1412/devops/blob/master/MongoRepl_rw.zip)
+
+用于在MongoDB的副本集读写分离的测试Python脚本
+
+* [auto_install_mongodb_v1.1.sh](https://github.com/coral1412/devops/blob/master/auto_install_mongodb_v1.1.sh)
+
+用于MongoDB的自动化部署安装脚本（待完善！）
+
+* [auto_mha_v1.0.sh](https://github.com/coral1412/devops/blob/master/auto_mha_v1.0.sh)
+
+用于MySQL MHA高可用环境部署的hell脚本（待完善，已通过Ansible Playbook完成一版)
