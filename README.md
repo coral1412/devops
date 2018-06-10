@@ -20,3 +20,7 @@ auto  scripts
 
 用于安装virtualenv、virtualenvwrapper以及pyenv,并初始化一个指定版本的Python及项目虚拟环境<br>
 usage：source auto_install_pyenv_virtualenv.sh  python_version  virtualenvname
+
+* [install_aliyun_epel.sh](https://github.com/coral1412/devops/blob/master/install_aliyun_epel.sh)
+
+根据系统版本安装阿里云的EPEL YUM源的脚本
