@@ -35,4 +35,4 @@ usage：source auto_install_pyenv_virtualenv.sh  python_version  virtualenvname
 
 * [auto_mha_v1.0.sh](https://github.com/coral1412/devops/blob/master/auto_mha_v1.0.sh)
 
-用于MySQL MHA高可用环境部署的hell脚本（待完善，已通过Ansible Playbook完成一版)
+用于MySQL MHA高可用环境部署的Shell脚本（待完善，已通过Ansible Playbook完成一版)
