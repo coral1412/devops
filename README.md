@@ -8,7 +8,7 @@ auto  scripts
 
 上述auto_install_mysql.sh手动自定义输入参数变量改成脚本命令参数输入。
 
-* [expgrants.sh](https://github.com/coral1412/devops/blob/master/expgrants.sh)
+* [expgrants56.sh](https://github.com/coral1412/devops/blob/master/expgrants56.sh)
 
 用于MySQL系统用户及权限备份/导出。
 
