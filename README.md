@@ -10,7 +10,7 @@ auto  scripts
 
 * [expgrants56.sh](https://github.com/coral1412/devops/blob/master/expgrants56.sh)
 
-用于MySQL系统用户及权限备份/导出。
+用于MySQL56系统用户及权限备份/导出。
 
 * [mysql_check.sh](https://github.com/coral1412/devops/blob/master/mysql_check.sh)
 
